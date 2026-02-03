@@ -318,8 +318,10 @@ padding: 0 1rem;
     <div class="heart big">❤️</div>
     <div class="heart small">❤️</div>
   </div>
-
-  <h1>Will you be my Valentine, <b><span style="font-family: 'Dancing Script';">Keli?</span></b></h1>
+<h1>
+  Will you be my Valentine,
+  <b><span id="valentineName" style="font-family: 'Dancing Script';">Keli</span>?</b>
+</h1>
 
   <!-- Right hearts -->
   <div class="heart-group">
@@ -582,6 +584,22 @@ for (let i = 0; i < 6; i++) {
 // then continue gently
 setInterval(spawnHeart, 220);
 </script>
+<script>
+  // Read name from URL (?name=...)
+  const params = new URLSearchParams(window.location.search);
+  const nameFromUrl = params.get('name');
 
+  if (nameFromUrl) {
+    // Clean + capitalize nicely
+    const cleanName =
+      nameFromUrl
+        .replace(/[^a-zA-Z\s'-]/g, '')
+        .trim();
+
+    if (cleanName.length > 0) {
+      document.getElementById('valentineName').textContent = cleanName;
+    }
+  }
+</script>
 </body>
 </html>

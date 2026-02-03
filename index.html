@@ -6,6 +6,8 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <style>
@@ -18,7 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Dancing Script', cursive;
+font-family: 'Playfair Display', serif;
     }
 	
 	.footer-note {
@@ -36,7 +38,7 @@
   position: absolute;
   top: -10vh;
   font-size: 1.5rem;
-  opacity: 0.35;
+  opacity: 0.55;
   animation-name: heartFall;
   animation-timing-function: linear;
 }
@@ -50,7 +52,7 @@
 
 .card {
   width: 60vw;
-  height: 60vh;
+  height: 50vh;
   background: #ffc2e5;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
@@ -73,10 +75,11 @@ padding-bottom: 4.5rem; /* 👈 reserve space so No never overlaps footer */
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  padding: 20px;
 }
 
     h1 {
-   font-size: clamp(2.5rem, 5vw, 4rem);
+   font-size: clamp(2.5rem, 5vw, 3rem);
   color: #4a0033;
   margin: 0;
   max-width: 100%;
@@ -170,7 +173,29 @@ html, body {
 	  padding: 0 1.25rem;
 
   }
- 
+ .yes-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: clamp(2rem, 4vw, 1.2rem);
+  color: #4a0033;
+  background: rgba(255, 194, 229, 0.85);
+
+  opacity: 0;
+  transform: translateY(-12px);   /* 👈 start slightly higher */
+  pointer-events: none;
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+
+  z-index: 5;
+}
+
 .card {
   width: calc(100% - 4rem);   /* 👈 space on left + right */
   min-height: auto;      /* 👈 let content decide height */
@@ -256,7 +281,7 @@ html, body {
   justify-content: center;
   text-align: center;
 
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 2.4rem);
   color: #4a0033;
   background: rgba(255, 194, 229, 0.85);
 
@@ -290,7 +315,7 @@ html, body {
     <div class="heart small">❤️</div>
   </div>
 
-  <h1>Will you be my Valentine, Keli?</h1>
+  <h1>Will you be my Valentine, <b><span style="font-family: 'Dancing Script';">Keli?</span></b></h1>
 
   <!-- Right hearts -->
   <div class="heart-group">
@@ -308,7 +333,7 @@ html, body {
   psst… the “No” button is feeling a bit cheeky today 🙈💗
 </div>
 <div class="yes-message" id="yesMessage">
- 🔥🧡Good, because that would have been awkward 🧡🔥 <br> (I already told people)<br>
+ 🔥🧡Good, because that would have been awkward 🧡🔥<br> (I already told people)<br>
 </div>
     </div>
   </div><script>
@@ -487,7 +512,7 @@ yesButton.style.transform = '';
       resetNoButton();
       launchFireworks();
       yesMessage.classList.add('show');
-    }, 3000);
+    }, 2000);
 
     return;
   }

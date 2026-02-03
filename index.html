@@ -2,11 +2,533 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>It Works 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Be My Valentine</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff0f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Dancing Script', cursive;
+    }
+	
+	.footer-note {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.heart-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* behind card */
+  overflow: hidden;
+}
+
+.heart-drop {
+  position: absolute;
+  top: -10vh;
+  font-size: 1.5rem;
+  opacity: 0.35;
+  animation-name: heartFall;
+  animation-timing-function: linear;
+}
+
+@keyframes heartFall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+.card {
+  width: 60vw;
+  height: 60vh;
+  background: #ffc2e5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* 👈 add this */
+    overflow: hidden; /* 👈 ADD THIS */
+padding-bottom: 4.5rem; /* 👈 reserve space so No never overlaps footer */
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.question {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+    h1 {
+   font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #4a0033;
+  margin: 0;
+  max-width: 100%;
+  text-align: center;
+    }
+
+    .heart-group {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      animation: heartbeat 3s infinite ease-in-out;
+    }
+
+    .heart.big {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: #cc005f;
+    }
+
+    .heart.small {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: #cc005f;
+      opacity: 0.85;
+    }
+
+    @keyframes heartbeat {
+      0%   { transform: scale(1); }
+      20%  { transform: scale(1.15); }
+      40%  { transform: scale(1); }
+      60%  { transform: scale(1.2); }
+      80%  { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+	.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2.5rem;
+}
+
+.btn {
+  width: calc(50% - 1rem);
+
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 999px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn.yes {
+  background: #ff6fae;
+  color: #ffffff;
+}
+.btn.no {
+  background: #ffd6e8;
+  color: #4a0033;
+    white-space: nowrap;
+
+  transition: left 0.25s ease, top 0.25s ease;
+
+}
+ 
+.footer-note {
+  position: absolute;
+  bottom: 1.2rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #6b003f;
+  opacity: 0.8;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+html, body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .content {
+    width: 100%;
+    margin-top: 1.5rem;
+	  padding: 0 1.25rem;
+
+  }
+ 
+.card {
+  width: calc(100% - 4rem);   /* 👈 space on left + right */
+  min-height: auto;      /* 👈 let content decide height */
+  max-height: 85vh;      /* 👈 cap height so it doesn’t get huge */
+  border-radius: 16px;        /* 👈 bring back rounded corners */
+  
+}
+
+
+ .question {
+  width: 100%;
+  max-width: none;      /* 👈 remove width cap */
+  padding: 0 0.5rem;    /* 👈 much wider feel */
+  gap: 0.8rem;
+}
+
+  h1 {
+    white-space: normal;
+   
+	  max-width: 100%;
+  text-align: center;
+	
+	  font-size: 1.9rem;      /* slightly smaller */
+    line-height: 1.25;
+    padding: 0 0.5rem;
+  }
+
+  .heart-group {
+    justify-content: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1.2rem;
+	    margin-top: 1.5rem;
+
+  }.btn.no {
+  transition: left 0.25s ease, top 0.25s ease;
+}
+  
+   .heart.big {
+    font-size: 2.4rem;
+  }
+
+  .heart.small {
+    font-size: 1.6rem;
+  }
+
+   
+  .btn {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  .footer-note {
+    font-size: 1rem;
+    bottom: 1rem;   }
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+.yes-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: #4a0033;
+  background: rgba(255, 194, 229, 0.85);
+
+  opacity: 0;
+  transform: translateY(-12px);   /* 👈 start slightly higher */
+  pointer-events: none;
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+
+  z-index: 5;
+}
+
+.yes-message.show {
+  opacity: 1;
+}
+
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; margin-top: 20vh;">
-  <h1>🎉 GitHub Pages is working!</h1>
-  <p>If you can see this, you’re live.</p>
+<body>
+<div class="heart-rain" id="heartRain"></div>
+
+  <div class="card">
+    <div class="content">
+
+   <div class="question">
+  <!-- Left hearts -->
+  <div class="heart-group">
+    <div class="heart big">❤️</div>
+    <div class="heart small">❤️</div>
+  </div>
+
+  <h1>Will you be my Valentine, Keli?</h1>
+
+  <!-- Right hearts -->
+  <div class="heart-group">
+    <div class="heart small">❤️</div>
+    <div class="heart big">❤️</div>
+  </div>
+</div>
+ 
+<div class="buttons">
+  <button class="btn yes">Yes 💖</button>
+  <button class="btn no">No 🙈</button>
+</div>
+</div>
+<div class="footer-note">
+  psst… the “No” button is feeling a bit cheeky today 🙈💗
+</div>
+<div class="yes-message" id="yesMessage">
+ 🔥🧡Good, because that would have been awkward 🧡🔥 <br> (I already told people)<br>
+</div>
+    </div>
+  </div><script>
+  const noButton = document.querySelector('.btn.no');
+  const card = document.querySelector('.card');
+  const footer = document.querySelector('.footer-note');
+
+const footerLines = [
+  'psst… the “No” button is feeling a bit cheeky today 🙈💗',
+  'wow okay, rude 😐',
+  'this feels personal now 🥲',
+  'you’re really committed to this, huh 😏',
+  'at this point it’s just cardio 🏃‍♀️💨',
+  'I admire the persistence honestly 👏',
+  'okay now I’m judging you 👀',
+  '…this is getting awkward 😬',
+  'you know there’s another button, right 🤨',
+  'blink twice if this is accidental 😅',
+  'this is a lot of effort for “No” 😳',
+  'I feel like we’re bonding now 🫶',
+  'do you need a snack break 🍪',
+  'I’m starting to feel chased 😰',
+  'wow you really woke up and chose chaos 😈',
+  'this button is FAST for a reason 💨',
+  'is this flirting or a workout 💪',
+  'I respect the determination 🫡',
+  'okay but imagine if it actually worked 😬',
+  'I’m not running forever you know 😤',
+  'this is starting to feel like a game now 🎮',
+  'you’re enjoying this a bit too much 😏',
+  'my cardio app just went off 📱',
+  'this button has trust issues now 🥺',
+  'we could’ve been done already 😩',
+  'I hope you stretched first 🧘',
+  'this feels legally questionable 😬',
+  'you’re really testing the universe rn 🌌',
+  'I’m filing a missing persons report 🕵️‍♂️',
+  'this is why buttons have boundaries 🚧',
+  'I bet you thought this would be easy 😌',
+  'I can do this all day 😤',
+  'okay now it’s just funny 😂',
+  'I feel like I should charge rent 💸',
+  'this is peak commitment behavior 🔥',
+  'emotionally I’ve moved on 😶',
+  'you’re fighting the wrong battle 😵',
+  'this button fears nothing 😈',
+  'alright now you’re just showing off 😌',
+  'fine. I’m impressed 😳'
+];
+
+let footerIndex = 0;
+// Store original position styles
+let originalNoPosition = { left: 0, top: 0 };
+
+window.addEventListener('load', () => {
+  const rect = noButton.getBoundingClientRect();
+  const yesRect = document.querySelector('.btn.yes').getBoundingClientRect();
+  const parentRect = card.getBoundingClientRect();
+
+  originalNoPosition = {
+    left: rect.left - parentRect.left,
+    top: rect.top - parentRect.top
+  };
+
+  // lock size to match YES button exactly
+  noButton.style.width = `${yesRect.width}px`;
+  noButton.style.height = `${yesRect.height}px`;
+
+  // switch to absolute without visual jump
+  
+  noButton.style.left = `${originalNoPosition.left}px`;
+  noButton.style.top = `${originalNoPosition.top}px`;
+});
+
+function resetNoButton() {
+  noButton.style.left = `${originalNoPosition.left}px`;
+  noButton.style.top = `${originalNoPosition.top}px`;
+}
+  // Wait for layout to fully settle
+  window.addEventListener('load', () => {
+    const btnRect = noButton.getBoundingClientRect();
+    noButton.style.width = `${btnRect.width}px`;
+    noButton.style.height = `${btnRect.height}px`;
+  });
+
+noButton.addEventListener('mouseenter', () => {
+  const cardRect = card.getBoundingClientRect();
+  const btnRect = noButton.getBoundingClientRect();
+
+  const padding = 16;
+  const footerBuffer = 80;
+
+  const maxX = cardRect.width - btnRect.width - padding;
+  const maxY =
+    cardRect.height - btnRect.height - padding - footerBuffer;
+
+  const x = padding + Math.random() * Math.max(0, maxX);
+  const y = padding + Math.random() * Math.max(0, maxY);
+
+  noButton.style.position = 'absolute';
+  noButton.style.left = `${x}px`;
+  noButton.style.top = `${y}px`;
+
+// 🔥 update footer text (random)
+let nextIndex;
+do {
+  nextIndex = Math.floor(Math.random() * footerLines.length);
+} while (nextIndex === footerIndex);
+
+footerIndex = nextIndex;
+
+footer.style.opacity = '0';
+footer.style.transform = 'translateY(4px)';
+
+setTimeout(() => {
+  footer.textContent = footerLines[footerIndex];
+  footer.style.opacity = '0.8';
+  footer.style.transform = 'translateY(0)';
+}, 150);
+});
+</script>
+<script>
+  const yesButton = document.querySelector('.btn.yes');
+
+function launchFireworks() {
+  const colors = ['#ff6fae', '#ffc2e5', '#ffb347', '#ffffff', '#ff4d6d'];
+
+  const duration = 4000; // 👈 total rain time (ms)
+  const interval = 80;  // 👈 how often new confetti spawns
+  const endTime = Date.now() + duration;
+
+  const confettiInterval = setInterval(() => {
+    if (Date.now() > endTime) {
+      clearInterval(confettiInterval);
+      return;
+    }
+
+    for (let i = 0; i < 12; i++) { // 👈 density per tick
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+
+      const size = Math.random() * 8 + 6;
+      confetti.style.width = `${size}px`;
+      confetti.style.height = `${size}px`;
+
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      confetti.style.animationDuration =
+        Math.random() * 2.5 + 2.5 + 's';
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 5000);
+    }
+  }, interval);
+}
+
+const yesMessage = document.getElementById('yesMessage');
+
+let yesConfirmed = false;
+
+yesButton.addEventListener('click', () => {
+  if (!yesConfirmed) {
+    yesConfirmed = true;
+yesButton.style.transform = 'scale(1.05)';
+
+    const originalText = yesButton.textContent;
+    yesButton.textContent = 'Are you really sure?';
+
+    setTimeout(() => {
+      yesButton.textContent = originalText;
+yesButton.style.transform = '';
+
+      resetNoButton();
+      launchFireworks();
+      yesMessage.classList.add('show');
+    }, 3000);
+
+    return;
+  }
+
+  // subsequent clicks behave normally
+  resetNoButton();
+  launchFireworks();
+  yesMessage.classList.add('show');
+});
+</script>
+<script>
+  const heartRain = document.getElementById('heartRain');
+  const heartEmojis = ['❤️','💗','💖','💘','💕','🌹','🌷','🌸','🌺','💐','🥀','✨','💫','🌟','⭐','💌','🎀','💝','💞'];
+
+  function spawnHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart-drop';
+    heart.textContent =
+      heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+const size = Math.random() * 1.4 + 0.9;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 5 + 5; // slow fall
+
+    heart.style.left = `${left}vw`;
+    heart.style.fontSize = `${size}rem`;
+    heart.style.animationDuration = `${duration}s`;
+
+    heartRain.appendChild(heart);
+
+    setTimeout(() => heart.remove(), duration * 1000);
+  }
+
+// spawn a few instantly so it feels alive on load
+for (let i = 0; i < 6; i++) {
+  setTimeout(spawnHeart, i * 120);
+}
+
+// then continue gently
+setInterval(spawnHeart, 220);
+</script>
+
 </body>
 </html>
